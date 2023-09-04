@@ -1,0 +1,23 @@
+soup_item: "minecraft:slimeball"
+gapple_item: "minecraft:golden_apple"
+
+soup: true #Permet d'activer ou de désactiver les soupes
+gapple: true #Permet d'activer ou de désactiver le speed des gapples
+
+max_soup: 64 #Nombre maximum de soup (actif seulement si soup est sur true)
+max_gapple: 16 #Nombre maximum de gapple (actif seulement si gapple est sur true)
+max_enderpearl: 6
+
+gapple_cooldown: 30 #Met un cooldown de 30 secondes, 0 secondes pour désactiver
+gapple_cooldown_message: "§9Il vous reste §f{second}s §9de cooldown !" #second = temps restant pour le cooldown
+
+enderpearl_cooldown: 25 #Met un cooldown de 30 secondes, 0 secondes pour désactiver
+enderpearl_cooldown_message: "§9Il vous reste §f{second}s §9de cooldown !" #second = temps restant pour le cooldown
+
+gapple_speed: "1:16:false" #Niveau:temps:visible  (en secondes)
+
+heal_popup: "§a+ {heal}" #Popup envoyé avec les soupes
+heal: 7 #7 = 3.5 coeurs, nombre de vie ajouté
+
+soup_automatic: true #false pour devoir cliquer une par une les soups pour se regen
+soup_on_block: true #pouvoir se regen sur les blocs
