@@ -8,6 +8,8 @@ use pocketmine\event\player\PlayerItemConsumeEvent;
 use pocketmine\event\player\PlayerItemUseEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\item\ItemTypeIds;
+use pocketmine\item\StringToItemParser;
+use pocketmine\item\VanillaItems;
 use pocketmine\player\GameMode;
 
 class Events implements Listener
@@ -68,7 +70,6 @@ class Events implements Listener
 
         if ($config->get("soup") === true) {
             $soup = Main::getInstance()->soup;
-            $count = 0;
 
             foreach ($player->getInventory()->getContents() as $items) {
                 if ($items->getTypeId() === $soup->getTypeId()) $count += $items->getCount();
@@ -91,6 +92,18 @@ class Events implements Listener
                 $player->getInventory()->remove($gapple);
                 $player->getInventory()->addItem($gapple->setCount($config->get("max_gapple")));
             }
+        }
+
+        $count = 0;
+        $enderpearl = Main::getInstance()->enderpearl;
+
+        foreach ($player->getInventory()->getContents() as $items) {
+            if ($items->getTypeId() === $enderpearl->getTypeId()) $count += $items->getCount();
+        }
+
+        if ($count > $config->get("max_enderpearl")) {
+            $player->getInventory()->remove($enderpearl);
+            $player->getInventory()->addItem($enderpearl->setCount($config->get("max_enderpearl")));
         }
     }
 }
