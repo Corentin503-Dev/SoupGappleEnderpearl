@@ -8,6 +8,7 @@ use pocketmine\event\player\PlayerItemConsumeEvent;
 use pocketmine\event\player\PlayerItemUseEvent;
 use pocketmine\item\Item;
 use pocketmine\item\StringToItemParser;
+use pocketmine\item\VanillaItems;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\SingletonTrait;
@@ -19,6 +20,8 @@ class Main extends PluginBase
     public Item $gapple;
 
     public Item $soup;
+
+    public Item $enderpearl;
 
     public array $cooldown_gapple = [];
 
@@ -32,6 +35,7 @@ class Main extends PluginBase
 
         $this->soup = StringToItemParser::getInstance()->parse($this->getConfig()->get("soup_item"));
         $this->gapple = StringToItemParser::getInstance()->parse($this->getConfig()->get("gapple_item"));
+        $this->enderpearl = VanillaItems::ENDER_PEARL();
 
         $this->getServer()->getPluginManager()->registerEvents(new Events(), $this);
     }
