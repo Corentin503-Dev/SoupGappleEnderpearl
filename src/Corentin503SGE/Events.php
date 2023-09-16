@@ -71,6 +71,8 @@ class Events implements Listener
         if ($config->get("soup") === true) {
             $soup = Main::getInstance()->soup;
 
+            $count = 0;
+
             foreach ($player->getInventory()->getContents() as $items) {
                 if ($items->getTypeId() === $soup->getTypeId()) $count += $items->getCount();
             }
